@@ -1,0 +1,195 @@
+package com.selenium.framework.libraries;
+
+import static org.testng.Assert.assertTrue;
+import java.util.concurrent.TimeUnit;
+import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
+
+public class seleniumLibrary {
+	
+    final static Logger logger = Logger.getLogger(seleniumLibrary.class);
+	public WebDriver driver;
+	int defaultWaitTimeInSecs= 40;
+	
+	public WebDriver getDriver() {
+		return driver;
+	}
+	public void setDriver(WebDriver driver) {
+		this.driver = driver;
+	}
+	
+// [ Generic Method 1 : setting chrome browser - delete cookies - maximize window ]	 
+  public WebDriver setBrowser () {
+	try {
+	logger.info("Step 1 : Setting driver property & Initiating the chrome webdriver ");
+	System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
+	driver = new ChromeDriver();
+	driver.manage().deleteAllCookies();
+	driver.manage().window().maximize();
+	setDriverWait();
+	}catch (Exception e) {//catch error
+		logger.error("Error: ", e );//Ensure save log for whatever in LOG File!
+	    assertTrue(false); //Stop Whole test to see where is issue if any !  
+	}
+	return driver;
+  }
+//[ Generic Method 2 (private): driver + broswer implicit wait  ]	
+ private void setDriverWait () {
+	
+	 try {
+	logger.info("Step 2 : Setting Implicitwait for selenium to wait driver opening then browser opening ");
+	driver.manage().timeouts().implicitlyWait(defaultWaitTimeInSecs, TimeUnit.SECONDS);
+	driver.manage().timeouts().pageLoadTimeout(defaultWaitTimeInSecs, TimeUnit.SECONDS);
+	Thread.sleep(1 , 1000 );
+	
+	}catch (Exception e) {
+		logger.error("Error: ", e );
+	    assertTrue(false); 
+	}
+  }
+ 
+//[ Generic Method 3 : Clicking any link  ]
+ public void clickAnyLink (By by) {
+	 WebElement element =  driver.findElement(by);
+	 element.click();
+ }
+ 
+//[ Generic Method 4 : setting dynamic wait - Till element of next page become visible  ]
+ public WebElement dynamicWaitForVisibilityOfElement(By by) {
+		WebElement element = null;
+		try {
+			WebDriverWait wait = new WebDriverWait(driver, defaultWaitTimeInSecs);
+			element = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+		} catch (Exception e) {
+			logger.error("Error: ", e);
+			assertTrue(false);
+		}
+		return element;
+	}
+//[ Generic Method 5 : setting dynamic wait - Till element of next page become Clickable  ]
+ public WebElement dynamicWaitForElementToBeClickable(By by) {
+		WebElement element = null;
+		try {
+			WebDriverWait wait = new WebDriverWait(driver, defaultWaitTimeInSecs);
+			element = wait.until(ExpectedConditions.elementToBeClickable(by));
+		} catch (Exception e) {
+			logger.error("Error: ", e);
+			assertTrue(false);
+		}
+		return element;
+	}
+//[ Generic Method 6 : Locate element - clear element - send txt  ]
+
+ public void entertext (By by, String inputTxt) {
+	 
+	 try {
+	 WebElement element = driver.findElement(by);
+	 element.clear();
+	 element.sendKeys(inputTxt);
+	 }catch (Exception e) {
+			logger.error("Error: ", e);
+			assertTrue(false);
+		}
+ }
+ 
+//[ Generic Method 8 : Select From Static drop down list with Method Overloading ]
+
+	public void selectDropDown(By by, String visibleTextOption) {
+		try {
+			Select tempSelect = selectDropDown(by);
+			tempSelect.selectByVisibleText(visibleTextOption);
+		} catch (Exception e) {
+			logger.error("Error: ", e);
+			assertTrue(false);
+		}
+	}
+
+	public Select selectDropDown(By by) {
+		Select selectDropdown = null;
+		try {
+			WebElement element = driver.findElement(by);
+			selectDropdown = new Select(element);
+		} catch (Exception e) {
+			logger.error("Error: ", e);
+			assertTrue(false);
+		}
+		return selectDropdown;
+	}
+	
+//[ Generic Method 9 : Select From dynamic drop downMove Mouse to Element using by by or using Webelemnt & moving from/to & highliting elemnt ]
+
+	public void moveToElement(By by) {
+		try {
+			WebElement element = driver.findElement(by);
+			Actions action = new Actions(driver);
+			action.moveToElement(element).build().perform();
+			customWait(0.5);
+		} catch (Exception e) {
+			logger.error("Error: ", e);
+			assertTrue(false);
+		}
+	}
+
+	public void moveToElement(WebElement element) {
+		try {
+			Actions action = new Actions(driver);
+			action.moveToElement(element).build().perform();
+			customWait(0.5);
+		} catch (Exception e) {
+			logger.error("Error: ", e);
+			assertTrue(false);
+		}
+	}
+	
+	public void highlightElement(WebElement element) {
+		try {
+			for (int i = 1; i < 4; i++) {
+				//We wrap the driver with Java script and make changes in the HTML file slight modifications for the colors and borders ON THE FLY 
+				JavascriptExecutor js = (JavascriptExecutor) driver;
+
+				//This will turn on the element
+				js.executeScript("arguments[0].setAttribute('style', arguments[1]);", element,
+						"color: red; border: 2px solid yellow");
+				customWait(0.5);
+				//This will turn off the element
+				js.executeScript("arguments[0].setAttribute('style', arguments[1]);", element, "");
+				customWait(0.5);
+			}
+		} catch (Exception e) {
+			logger.error("Error: ", e);
+			assertTrue(false);
+		}
+	}
+
+	public void moveToElement(WebElement fromElem, WebElement toElem) {
+		try {
+			Actions action = new Actions(driver);
+			highlightElement(fromElem);
+			Actions action1 = action.moveToElement(fromElem);
+			customWait(0.5);
+			highlightElement(toElem);
+			action1.moveToElement(toElem).click().perform();
+		} catch (Exception e) {
+			logger.error("Error: ", e);
+			assertTrue(false);
+		}
+	}
+	public void customWait(double inSeconds) {
+		try {
+			Thread.sleep((long) (inSeconds * 1000));
+		} catch (Exception e) {
+			logger.error("Error: ", e);
+			assertTrue(false);			
+		}
+	}
+	
+}

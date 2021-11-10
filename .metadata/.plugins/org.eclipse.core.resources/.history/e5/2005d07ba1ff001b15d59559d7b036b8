@@ -1,0 +1,42 @@
+package com.selenium.framework.libraries;
+
+import org.apache.log4j.Logger;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+
+import com.seleniun.framework.pages.HomePageCartDetials;
+
+public class seleniumBase {
+	
+	final static Logger logger = Logger.getLogger(seleniumBase.class);
+	
+	
+@BeforeClass
+public void beforAnyTestMethod () {
+	
+}
+
+@BeforeMethod
+public void setUp () {
+	
+	
+}
+
+@AfterMethod
+public void tearDown () {
+	
+}
+
+
+@AfterClass
+
+public void cleanUpAfterAllTestMethods() {		
+	logger.info("After Class ...");
+	
+	if (driver != null) {
+		driver.quit();
+	}
+}
+}

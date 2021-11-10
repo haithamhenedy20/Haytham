@@ -1,0 +1,42 @@
+package com.seleniun.framework.pages;
+
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import com.selenium.framework.libraries.seleniumBase;
+import com.selenium.framework.libraries.seleniumLibrary;
+
+
+public class HomePageMain1 extends seleniumBase {
+	//This Class should Include Any "Locators + drivers + Webelements" BUT no testing Annotations!!
+
+	final static Logger logger = Logger.getLogger(HomePageMain1.class);
+	public String url = "http://automationpractice.com/index.php";
+
+
+	public HomePageMain1() {	
+		try {
+	    logger.info("Step 3 : Getting URL & Comparing Actual/Expected URL ");
+		driver.get(url);
+		String actualUrl = driver.getTitle();
+		String expectedUrl = "http://automationpractice.com/index.php";
+		assertEquals(actualUrl, expectedUrl);
+		
+		}catch (Exception e) {//catch any error
+			logger.error("Error: ", e );//Ensure save log for whatever in LOG File!
+		    assertTrue(false); //Stop Whole test to see where is issue if any ! 
+		}
+	}
+	
+	public HomePageAuthentication2 pressSignIn () {
+		logger.info("Step 4 : Clicking Signin link || diverting to our HTML 2nd Page-->  Authentication Page ");
+		library.clickAnyLink(By.partialLinkText("Sign"));
+		return new HomePageAuthentication2();
+	}
+
+	
+}

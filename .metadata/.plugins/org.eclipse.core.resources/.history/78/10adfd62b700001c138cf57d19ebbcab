@@ -1,0 +1,40 @@
+package com.seleniun.framework.pages;
+
+import static org.testng.Assert.assertNotNull;
+import static org.testng.Assert.assertTrue;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+
+import com.selenium.framework.libraries.seleniumBase;
+import com.selenium.framework.libraries.seleniumLibrary;
+
+public class HP5MyWishList extends seleniumBase {
+
+	    final static Logger logger = Logger.getLogger(HP5MyWishList.class);
+		seleniumLibrary library = new seleniumLibrary(driver);
+	
+	public HP5MyWishList () {
+		
+		WebElement nameField = library.dynamicWaitForVisibilityOfElement(By.cssSelector("#name"));
+		assertNotNull(nameField,"MY WISH LIST page loading Failed");
+
+	}
+	
+	public void womenBuildBlosses () {
+		try {
+	logger.info("moving the mouse to women link then build up and shift mouse to blouses");
+			
+	WebElement womenLink = driver.findElement(By.linkText("Women"));
+	Actions action = new Actions(driver);
+	action.moveToElement(womenLink).build().perform();
+	
+	
+		}catch (Exception e) {
+		logger.error("Error: ", e );
+		assertTrue(false); 
+   }
+  }
+}

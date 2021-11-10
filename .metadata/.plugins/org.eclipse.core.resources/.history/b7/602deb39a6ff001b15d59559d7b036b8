@@ -1,0 +1,9 @@
+package com.selenium.framework.libraries;
+
+import org.apache.log4j.Logger;
+
+public class seleniumLibrary {
+	
+	final static Logger logger = Logger.getLogger(seleniumLibrary.class);
+
+}

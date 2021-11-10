@@ -1,0 +1,22 @@
+package com.seleniun.framework.pages;
+
+import static org.testng.Assert.assertNotNull;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import com.selenium.framework.libraries.seleniumLibrary;
+
+public class HomePageAuthentication2 {
+	
+	final static Logger logger = Logger.getLogger(HomePageAuthentication2.class);
+	seleniumLibrary library = new seleniumLibrary();
+
+	public HomePageAuthentication2 () {
+		WebElement enterEmailAddressField = library.dynamicWaitForVisibilityOfElement(By.cssSelector("#email_create"));
+		assertNotNull(enterEmailAddressField,"Email Address Field is not visible-creat account action is penidng");
+		
+	}
+
+}

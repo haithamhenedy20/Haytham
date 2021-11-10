@@ -1,0 +1,45 @@
+package com.selenium.framework.libraries;
+
+import static org.testng.Assert.assertTrue;
+
+import java.util.concurrent.TimeUnit;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class seleniumLibrary {
+	
+	final static Logger logger = Logger.getLogger(seleniumLibrary.class);
+	 public WebDriver driver;
+    
+	 
+	 
+  public void setDriver () {
+	try {
+	logger.info("Step 1 : Setting driver property & Initiating the chrome webdriver ");
+	System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
+	driver = new ChromeDriver();
+	ChromeDriver driver = new ChromeDriver();
+	driver.manage().window().maximize();
+	}catch (Exception e) {
+		logger.error("Error: ", e );
+	    assertTrue(false); 	    
+	}
+  }
+  
+ public void driverWait () {
+	
+	 try {
+	logger.info("Step 2 : Implicitwait for selenium to wait driver opening then browser opening ");
+	driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+	driver.get("http://automationpractice.com/index.php");
+	Thread.sleep(1 , 1000 );
+	
+	}catch (Exception e) {
+		logger.error("Error: ", e );//Ensure save log for whatever in LOG File!
+	    assertTrue(false); //Stop Whole test to see where is issue if any ! 
+	}
+  }
+}

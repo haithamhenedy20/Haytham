@@ -1,0 +1,96 @@
+package com.selenium.framework.libraries;
+
+import static org.testng.Assert.assertTrue;
+import java.util.concurrent.TimeUnit;
+import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class seleniumLibrary {
+	
+	final static Logger logger = Logger.getLogger(seleniumLibrary.class);
+	private WebDriver driver;
+	int defaultWaitTimeInSecs= 20;
+
+// [ Generic Method 1 : setting chrome browser - delete cookies - maximize window ]	 
+  public WebDriver setBrowser () {
+	try {
+	logger.info("Step 1 : Setting driver property & Initiating the chrome webdriver ");
+	System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
+	driver = new ChromeDriver();
+	driver.manage().deleteAllCookies();
+	driver.manage().window().maximize();
+	setDriverWait();
+	}catch (Exception e) {
+		logger.error("Error: ", e );//Ensure save log for whatever in LOG File!
+	    assertTrue(false); //Stop Whole test to see where is issue if any !  
+	}
+	return driver;
+  }
+//[ Generic Method 2 (private): driver + broswer implicit wait  ]	
+ private void setDriverWait () {
+	
+	 try {
+	logger.info("Step 2 : Setting Implicitwait for selenium to wait driver opening then browser opening ");
+	driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+	Thread.sleep(1 , 1000 );
+	
+	}catch (Exception e) {
+		logger.error("Error: ", e );
+	    assertTrue(false); 
+	}
+  }
+ 
+//[ Generic Method 3 : Clicking any link  ]
+ public void clickAnyLink (By by) {
+	 WebElement element =  driver.findElement(by);
+	 element.click();
+ }
+ 
+//[ Generic Method 4 : setting dynamic wait - Till element of next page become visible  ]
+ public WebElement dynamicWaitForVisibilityOfElement(By by) {
+		WebElement element = null;
+		try {
+			WebDriverWait wait = new WebDriverWait(driver, defaultWaitTimeInSecs);
+			element = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+		} catch (Exception e) {
+			logger.error("Error: ", e);
+			assertTrue(false);
+		}
+		return element;
+	}
+//[ Generic Method 5 : setting dynamic wait - Till element of next page become Clickable  ]
+ public WebElement dynamicWaitForElementToBeClickable(By by) {
+		WebElement element = null;
+		try {
+			WebDriverWait wait = new WebDriverWait(driver, defaultWaitTimeInSecs);
+			element = wait.until(ExpectedConditions.elementToBeClickable(by));
+		} catch (Exception e) {
+			logger.error("Error: ", e);
+			assertTrue(false);
+		}
+		return element;
+	}
+//[ Generic Method 6 : Locate element - clear element - send txt  ]
+
+ public void entertext (By by, String inputTxt) {
+	 
+	 try {
+	 WebElement element = driver.findElement(by);
+	 element.clear();
+	 element.sendKeys(inputTxt);
+	 }catch (Exception e) {
+			logger.error("Error: ", e);
+			assertTrue(false);
+		}
+ }
+ 
+ 
+ 
+ 
+}

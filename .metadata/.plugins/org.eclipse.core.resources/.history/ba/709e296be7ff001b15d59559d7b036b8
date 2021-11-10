@@ -1,0 +1,18 @@
+package com.selenium.framework.tests;
+
+import org.apache.log4j.Logger;
+import com.selenium.framework.libraries.seleniumLibrary;
+import com.seleniun.framework.pages.HomePageAuthentication2;
+
+public class Testing {
+
+	final static Logger logger = Logger.getLogger(HomePageAuthentication2.class);
+	seleniumLibrary library = new seleniumLibrary();
+	
+	
+	public void testingCases () {
+		
+		
+	}
+	
+}

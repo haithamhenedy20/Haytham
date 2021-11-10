@@ -1,0 +1,33 @@
+package com.seleniun.framework.pages;
+
+import static org.testng.Assert.assertNotNull;
+import static org.testng.Assert.assertTrue;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import com.selenium.framework.libraries.seleniumLibrary;
+
+public class HP5MyWishList {
+
+	    final static Logger logger = Logger.getLogger(HP5MyWishList.class);
+		seleniumLibrary library = new seleniumLibrary();
+	
+	public HP5MyWishList () {
+		
+		WebElement nameField = library.dynamicWaitForVisibilityOfElement(By.cssSelector("#name"));
+		assertNotNull(nameField,"MY WISH LIST page loading Failed");
+
+	}
+	
+	public void nameMyWishList () {
+		try {
+	
+			
+		}catch (Exception e) {
+		logger.error("Error: ", e );
+		assertTrue(false); 
+   }
+  }
+}

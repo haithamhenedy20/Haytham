@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [AutomationPractice]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Test(failed)">
+    <classes>
+      <class name="com.selenium.framework.tests.sAddToCartTesting">
+        <methods>
+          <include name="purchaseItemsInCart"/>
+          <include name="beforAllTheTestMethods"/>
+          <include name="tearDown"/>
+          <include name="cleanUpAfterAllTestMethods"/>
+          <include name="setUp"/>
+          <include name="addItemsToCartTest"/>
+        </methods>
+      </class> <!-- com.selenium.framework.tests.sAddToCartTesting -->
+      <class name="com.selenium.framework.tests.SearchingFunctionsExtendTesting">
+        <methods>
+          <include name="beforAllTheTestMethods"/>
+          <include name="tearDown"/>
+          <include name="cleanUpAfterAllTestMethods"/>
+          <include name="setUp"/>
+          <include name="sliderBarAutomating"/>
+        </methods>
+      </class> <!-- com.selenium.framework.tests.SearchingFunctionsExtendTesting -->
+      <class name="com.selenium.framework.tests.SignInPageTesting">
+        <methods>
+          <include name="beforAllTheTestMethods"/>
+          <include name="tearDown"/>
+          <include name="cleanUpAfterAllTestMethods"/>
+          <include name="setUp"/>
+          <include name="testSignInWrongCredentialsWithNoDomain"/>
+        </methods>
+      </class> <!-- com.selenium.framework.tests.SignInPageTesting -->
+      <class name="com.selenium.framework.tests.ContactCCareTesting">
+        <methods>
+          <include name="beforAllTheTestMethods"/>
+          <include name="tearDown"/>
+          <include name="cleanUpAfterAllTestMethods"/>
+          <include name="setUp"/>
+          <include name="contactCustomerCareTesting"/>
+        </methods>
+      </class> <!-- com.selenium.framework.tests.ContactCCareTesting -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [AutomationPractice] -->

@@ -1,0 +1,49 @@
+package com.seleniun.framework.pages;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+import com.selenium.framework.libraries.seleniumBase;
+import com.selenium.framework.libraries.seleniumLibrary;
+
+public class CreateAnAccountPage3 extends seleniumBase {
+	
+	final static Logger logger = Logger.getLogger(CreateAnAccountPage3.class);
+	seleniumLibrary library = new seleniumLibrary();
+	
+	
+	public CreateAnAccountPage3() {
+		logger.info("Step 7 : diverting to HTML 3 || building constructor & Waiting Visibilty HTML Page 3  " );		
+		library.dynamicWaitForVisibilityOfElement(By.cssSelector("#customer_firstname"));
+	}
+	
+	public void specifygender () {
+		library.clickAnyLink(By.cssSelector("#id_gender1"));
+		
+	}
+	
+	public void enteringUserDetails () {
+		library.entertext(By.cssSelector("#customer_firstname"), "Haytham");
+		library.entertext(By.cssSelector("#customer_lastname"), "Hundy");
+		library.entertext(By.cssSelector("#email"), "haytham.hundy@gmail.com");
+		library.entertext(By.cssSelector("#passwd"), "haythamhenedy21@@");
+	}
+	
+	public void dropDownStaticListDateBirth () {
+		
+	library.selectDropDown(By.id("uniform-days")).selectByIndex(0); 
+	library.selectDropDown(By.cssSelector("#months")).selectByVisibleText("February ");
+	library.selectDropDown(By.cssSelector("#years")).selectByVisibleText("2021  ");
+
+	}
+	
+	public void fillingAddressDetails () {
+		
+		library.entertext(By.id("firstname"), "Haytham");
+		library.entertext(By.id("#lastname"), "Hundy");
+		library.entertext(By.cssSelector("#company"), "MADCOP");
+		library.entertext(By.cssSelector("#address1"), "4607 ROYAL OAKS , MONMOUTH JNC");
+
+		}
+}

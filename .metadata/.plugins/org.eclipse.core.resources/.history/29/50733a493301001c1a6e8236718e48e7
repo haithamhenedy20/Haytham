@@ -1,0 +1,44 @@
+package com.selenium.framework.libraries;
+
+import java.util.concurrent.TimeUnit;
+import org.apache.log4j.Logger;
+import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+
+public class Essentials {
+	final static Logger logger = Logger.getLogger(Essentials.class);
+	public static MyLibrary myLib;
+	public static WebDriver driver;
+	String url = "http://automationpractice.com/index.php";
+	@BeforeMethod
+	public void setUp() {
+		myLib = new MyLibrary();
+		driver = myLib.startBrowser(com.selenium.framework.libraries.MyLibrary.Browser.CHROME);
+		driver.get(url);
+		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		String websiteTitle = driver.getTitle();
+		logger.info("website title is: " + websiteTitle);
+		String expectedTitle = "My Store";
+		Assert.assertEquals(websiteTitle, expectedTitle);
+	}
+	@AfterMethod
+	public void closingBrowsers() {
+		myLib.customWait(5);
+		if (driver != null) {
+			driver.close();
+		}
+	}
+	@AfterClass
+	public void cleanUpProcess() {
+		logger.info("After Class....");
+		if (driver != null) {
+			driver.quit();
+		}
+	}
+}
+
+

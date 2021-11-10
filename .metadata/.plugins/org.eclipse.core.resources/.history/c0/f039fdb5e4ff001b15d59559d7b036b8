@@ -1,0 +1,36 @@
+package com.seleniun.framework.pages;
+
+import static org.testng.Assert.assertNotNull;
+import static org.testng.Assert.assertTrue;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import com.selenium.framework.libraries.seleniumLibrary;
+
+public class HomePageAuthentication2 {
+	
+	final static Logger logger = Logger.getLogger(HomePageAuthentication2.class);
+	seleniumLibrary library = new seleniumLibrary();
+
+	public HomePageAuthentication2 () {
+		WebElement enterEmailAddressField = library.dynamicWaitForVisibilityOfElement(By.cssSelector("#email_create"));
+		assertNotNull(enterEmailAddressField,"Email Address Field is not visible-creat account action is penidng");
+	}
+	
+	public void enteringEmailAddress () {
+		try {
+		library.entertext(By.cssSelector("#email_create"), "Haytham.Hundy@gmail.com");
+		Thread.sleep(2, 1000);
+		}catch (Exception e) {
+			logger.error("Error: ", e );
+		    assertTrue(false); 
+	    }
+	}
+	public void creatAnAccountLink () {
+		library.clickAnyLink(By.cssSelector("body.authentication.hide-left-column.hide-right-column.lang_en:nth-child(4) div.columns-container div.container div.row:nth-child(3) div.center_column.col-xs-12.col-sm-12 div.row div.col-xs-12.col-sm-6:nth-child(1) form.box div.form_content.clearfix div.submit:nth-child(4) button.btn.btn-default.button.button-medium.exclusive:nth-child(2) > span:nth-child(1)"));
+		
+	} 
+
+}

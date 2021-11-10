@@ -1,0 +1,26 @@
+package com.selenium.framework.tests;
+
+import org.apache.log4j.Logger;
+import org.testng.annotations.Test;
+
+import com.selenium.framework.libraries.seleniumBase;
+import com.selenium.framework.libraries.seleniumLibrary;
+import com.seleniun.framework.pages.HomePageAuthentication2;
+import com.seleniun.framework.pages.HomePageMain1;
+
+public class Testing extends seleniumBase {
+
+	final static Logger logger = Logger.getLogger(HomePageAuthentication2.class);
+	HomePageMain1 methodCaller = new HomePageMain1();
+	
+	
+	
+	@Test(priority =1)
+	public void testingCases () {
+
+		methodCaller.pressSignIn();
+		
+		
+	}
+	
+}

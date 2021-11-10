@@ -1,0 +1,36 @@
+package com.seleniun.framework.pages;
+
+import static org.testng.Assert.assertNotNull;
+import static org.testng.Assert.assertTrue;
+import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import com.selenium.framework.libraries.seleniumBase;
+import com.selenium.framework.libraries.seleniumLibrary;
+
+public class HP2Authentication extends seleniumBase{
+	
+	final static Logger logger = Logger.getLogger(HP2Authentication.class);
+	seleniumLibrary library = new seleniumLibrary(driver);///////changeeeeeeeeeee
+
+	public HP2Authentication () {
+		logger.info("Step 5 : creating modified default constructor || waiting for HTML 2 Page loading by wait visibility of entering email address field" );
+		WebElement enterEmailAddressField = library.dynamicWaitForVisibilityOfElement(By.cssSelector("#email_create"));
+		assertNotNull(enterEmailAddressField,"Enter Email Address Field is not visible-Navigating to next poage [creat account page] is penidng");
+	}
+	
+	public HP3CreateAccount enteringEmailAddressClickingCreatAccount () {
+		try {
+		logger.info("Step 6 : Entering user Email address || Clicking creat account link || diverting to HTML page 3" );
+		library.entertext(By.cssSelector("#email_create"), "Haytham.Hundy@gmail.com");
+		library.clickAnyLink(By.cssSelector("body.authentication.hide-left-column.hide-right-column.lang_en:nth-child(4) div.columns-container div.container div.row:nth-child(3) div.center_column.col-xs-12.col-sm-12 div.row div.col-xs-12.col-sm-6:nth-child(1) form.box div.form_content.clearfix div.submit:nth-child(4) button.btn.btn-default.button.button-medium.exclusive:nth-child(2) > span:nth-child(1)"));
+		Thread.sleep(1, 1000);
+		}catch (Exception e) {
+			logger.error("Error: ", e );
+			assertTrue(false); 
+		    }
+		return new HP3CreateAccount();
+	}
+	
+}	

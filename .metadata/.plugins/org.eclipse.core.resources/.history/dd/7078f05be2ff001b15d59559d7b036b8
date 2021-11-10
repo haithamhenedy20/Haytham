@@ -1,0 +1,16 @@
+package com.seleniun.framework.pages;
+
+import org.apache.log4j.Logger;
+
+public class HomePageAuthentication2 {
+	
+	final static Logger logger = Logger.getLogger(HomePageAuthentication2.class);
+
+	public void locatingEmailAddress () {
+		
+		
+		
+		
+	}
+
+}

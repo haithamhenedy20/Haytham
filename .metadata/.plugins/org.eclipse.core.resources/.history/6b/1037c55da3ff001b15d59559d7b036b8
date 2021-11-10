@@ -1,0 +1,45 @@
+package com.selenium.framework.libraries;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+
+
+public class seleniumBase {
+	
+	final static Logger logger = Logger.getLogger(seleniumBase.class);
+	public WebDriver driver;
+
+@BeforeClass
+public void beforAllTheTestMethods () {
+	
+       logger.info("Automation Test Started on this line ...");
+	
+	
+}
+
+@BeforeMethod
+public void setUp () {
+	
+	
+}
+
+@AfterMethod
+public void tearDown () {
+	
+}
+
+
+@AfterClass
+
+public void cleanUpAfterAllTestMethods() {		
+	logger.info("After Class ...");
+	
+	if (driver != null) {
+		driver.quit();
+	}
+}
+}

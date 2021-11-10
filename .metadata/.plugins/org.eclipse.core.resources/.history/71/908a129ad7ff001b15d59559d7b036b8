@@ -1,0 +1,30 @@
+package com.seleniun.framework.pages;
+
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+import org.apache.log4j.Logger;
+import com.selenium.framework.libraries.seleniumBase;
+
+
+public class HomePageMain extends seleniumBase {
+	
+	final static Logger logger = Logger.getLogger(HomePageMain.class);
+	public String url = "http://automationpractice.com/index.php";
+	
+	
+	public void loadingWebsite () {	
+		try {
+		driver.get(url);
+		String actualUrl = driver.getTitle();
+		String expectedUrl = "http://automationpractice.com/index.php";
+		assertEquals(actualUrl, expectedUrl);
+		
+		logger.info("step x : next 3 lines in sequence A)catch err b)ensure saving logs c) stop test @err location");
+		}catch (Exception e) {
+			logger.error("Error: ", e );//Ensure save log for whatever in LOG File!
+		    assertTrue(false); //Stop Whole test to see where is issue if any ! 
+		}
+		
+	}
+	
+}

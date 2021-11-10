@@ -1,0 +1,55 @@
+package com.seleniun.framework.pages;
+
+import static org.testng.Assert.assertTrue;
+
+import java.util.concurrent.TimeUnit;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
+import com.selenium.framework.libraries.seleniumLibrary;
+
+public class random {
+	
+	    final static Logger logger = Logger.getLogger(seleniumLibrary.class);
+		public static WebDriver driver;
+		public String url = "http://automationpractice.com/index.php";
+		int defaultWaitTimeInSecs =30;
+		
+		@Test
+		 public WebDriver setBrowser () {
+				try {
+				logger.info("Step 1 : Setting driver property & Initiating the chrome webdriver ");
+				System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
+				driver = new ChromeDriver();
+				driver.manage().deleteAllCookies();
+				driver.manage().window().maximize();
+				driver.get(url);
+				driver.getTitle();
+				Thread.sleep(4, 10000);
+				setDriverWait();
+				}catch (Exception e) {//catch error
+					logger.error("Error: ", e );//Ensure save log for whatever in LOG File!
+				    assertTrue(false); //Stop Whole test to see where is issue if any !  
+				}
+				return driver;
+			  }
+			//[ Generic Method 2 (private): driver + broswer implicit wait  ]	
+			 private void setDriverWait () {
+				
+				 try {
+				logger.info("Step 2 : Setting Implicitwait for selenium to wait driver opening then browser opening ");
+				driver.manage().timeouts().implicitlyWait(defaultWaitTimeInSecs, TimeUnit.SECONDS);
+				driver.manage().timeouts().pageLoadTimeout(defaultWaitTimeInSecs, TimeUnit.SECONDS);
+				Thread.sleep(1 , 1000 );
+				
+				}catch (Exception e) {
+					logger.error("Error: ", e );
+				    assertTrue(false); 
+				}
+			  }
+			 
+
+}

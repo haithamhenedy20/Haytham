@@ -1,0 +1,34 @@
+package com.seleniun.framework.pages;
+import static org.testng.Assert.assertNotNull;
+import static org.testng.Assert.assertTrue;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import com.selenium.framework.libraries.seleniumLibrary;
+
+public class HP4MyAccount {
+	
+    final static Logger logger = Logger.getLogger(HP4MyAccount.class);
+    seleniumLibrary library = new seleniumLibrary(driver);
+    
+	public HP4MyAccount () {
+	String orderHistorycss = "body.my-account.hide-left-column.hide-right-column.lang_en:nth-child(4) div.columns-container div.container div.row:nth-child(3) div.center_column.col-xs-12.col-sm-12 div.row.addresses-lists div.col-xs-12.col-sm-6.col-lg-4:nth-child(1) ul.myaccount-link-list li:nth-child(1) > a:nth-child(1)";
+	WebElement orderHistorylink = library.dynamicWaitForElementToBeClickable(By.cssSelector(orderHistorycss));
+	assertNotNull(orderHistorylink,"order History &details link Field is not Clickable- Loading [MY ACCOUNT] page is penidng");
+
+	}
+	
+	public HP5MyWishList clickingwishList () {
+		
+		try {
+	
+		logger.info("clicking my wish list || Navigating to HTML Page 5 [My Wish List] ");
+		library.clickAnyLink(By.cssSelector("body.my-account.hide-left-column.hide-right-column.lang_en:nth-child(4) div.columns-container div.container div.row:nth-child(3) div.center_column.col-xs-12.col-sm-12 div.row.addresses-lists div.col-xs-12.col-sm-6.col-lg-4:nth-child(2) ul.myaccount-link-list li.lnk_wishlist a:nth-child(1) > span:nth-child(2)"));
+		}catch (Exception e) {
+		logger.error("Error: ", e );
+		assertTrue(false); 
+	  }
+	return new HP5MyWishList();
+  }
+}

@@ -1,0 +1,19 @@
+package com.seleniun.framework.pages;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
+
+import com.selenium.framework.libraries.seleniumLibrary;
+
+public class CreateAnAccountPage3 {
+	
+	final static Logger logger = Logger.getLogger(CreateAnAccountPage3.class);
+	seleniumLibrary library = new seleniumLibrary();
+	
+	
+	public CreateAnAccountPage3() {
+		logger.info("Step 7 : diverting to HTML 3 || Waiting Visibilty HTML Page 3  " );		
+		library.dynamicWaitForVisibilityOfElement(By.cssSelector("#customer_firstname"));
+	}
+	
+}

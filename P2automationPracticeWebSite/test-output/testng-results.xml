@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+  <reporter-output>
+    <line>
+      <![CDATA[Yayyy my test is passed!!]]>
+    </line>
+    <line>
+      <![CDATA[Yayyy my test is passed!!]]>
+    </line>
+    <line>
+      <![CDATA[Yayyy my test is passed!!]]>
+    </line>
+  </reporter-output>
+  <suite started-at="2021-11-10T00:33:14 EST" name="Default suite" finished-at="2021-11-10T00:34:15 EST" duration-ms="60819">
+    <groups>
+    </groups>
+    <test started-at="2021-11-10T00:33:14 EST" name="Default test" finished-at="2021-11-10T00:34:15 EST" duration-ms="60819">
+      <class name="differentTestings.DDTdataProviderAnnotation">
+        <test-method is-config="true" signature="beforAllTheTestMethods()[pri:0, instance:differentTestings.DDTdataProviderAnnotation@26d9b808]" started-at="2021-11-10T00:33:14 EST" name="beforAllTheTestMethods" finished-at="2021-11-10T00:33:14 EST" duration-ms="25" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforAllTheTestMethods -->
+        <test-method is-config="true" signature="setUp(org.testng.ITestResult)[pri:0, instance:differentTestings.DDTdataProviderAnnotation@26d9b808]" started-at="2021-11-10T00:33:14 EST" name="setUp" finished-at="2021-11-10T00:33:21 EST" duration-ms="7085" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name={null} status=CREATED method=DDTdataProviderAnnotation.contactCustomerCareTesting(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:differentTestings.DDTdataProviderAnnotation@26d9b808] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="contactCustomerCareTesting(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:differentTestings.DDTdataProviderAnnotation@26d9b808]" started-at="2021-11-10T00:33:21 EST" name="contactCustomerCareTesting" data-provider="testData" finished-at="2021-11-10T00:33:34 EST" duration-ms="12619" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Customer service]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[NJUSA@gmail.com]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[246789]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Yayyy my test is passed!!]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- contactCustomerCareTesting -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:differentTestings.DDTdataProviderAnnotation@26d9b808]" started-at="2021-11-10T00:33:34 EST" name="tearDown" finished-at="2021-11-10T00:33:34 EST" duration-ms="119" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=contactCustomerCareTesting status=SUCCESS method=DDTdataProviderAnnotation.contactCustomerCareTesting(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:differentTestings.DDTdataProviderAnnotation@26d9b808] output=Yayyy my test is passed!!]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp(org.testng.ITestResult)[pri:0, instance:differentTestings.DDTdataProviderAnnotation@26d9b808]" started-at="2021-11-10T00:33:34 EST" name="setUp" finished-at="2021-11-10T00:33:42 EST" duration-ms="7404" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name={null} status=CREATED method=DDTdataProviderAnnotation.contactCustomerCareTesting(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:differentTestings.DDTdataProviderAnnotation@26d9b808] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="contactCustomerCareTesting(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:differentTestings.DDTdataProviderAnnotation@26d9b808]" started-at="2021-11-10T00:33:42 EST" name="contactCustomerCareTesting" data-provider="testData" finished-at="2021-11-10T00:33:55 EST" duration-ms="13355" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Customer service]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[IT@gmail.com]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[HHX6789]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Yayyy my test is passed!!]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- contactCustomerCareTesting -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:differentTestings.DDTdataProviderAnnotation@26d9b808]" started-at="2021-11-10T00:33:55 EST" name="tearDown" finished-at="2021-11-10T00:33:55 EST" duration-ms="205" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=contactCustomerCareTesting status=SUCCESS method=DDTdataProviderAnnotation.contactCustomerCareTesting(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:differentTestings.DDTdataProviderAnnotation@26d9b808] output=Yayyy my test is passed!!]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp(org.testng.ITestResult)[pri:0, instance:differentTestings.DDTdataProviderAnnotation@26d9b808]" started-at="2021-11-10T00:33:55 EST" name="setUp" finished-at="2021-11-10T00:34:02 EST" duration-ms="6594" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name={null} status=CREATED method=DDTdataProviderAnnotation.contactCustomerCareTesting(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:differentTestings.DDTdataProviderAnnotation@26d9b808] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="contactCustomerCareTesting(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:differentTestings.DDTdataProviderAnnotation@26d9b808]" started-at="2021-11-10T00:34:02 EST" name="contactCustomerCareTesting" data-provider="testData" finished-at="2021-11-10T00:34:14 EST" duration-ms="12636" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Customer service]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[xxx@gmail.com]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[xxxHHX6789]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Yayyy my test is passed!!]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- contactCustomerCareTesting -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:differentTestings.DDTdataProviderAnnotation@26d9b808]" started-at="2021-11-10T00:34:14 EST" name="tearDown" finished-at="2021-11-10T00:34:14 EST" duration-ms="90" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=contactCustomerCareTesting status=SUCCESS method=DDTdataProviderAnnotation.contactCustomerCareTesting(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:differentTestings.DDTdataProviderAnnotation@26d9b808] output=Yayyy my test is passed!!]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="cleanUpAfterAllTestMethods()[pri:0, instance:differentTestings.DDTdataProviderAnnotation@26d9b808]" started-at="2021-11-10T00:34:14 EST" name="cleanUpAfterAllTestMethods" finished-at="2021-11-10T00:34:15 EST" duration-ms="604" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUpAfterAllTestMethods -->
+      </class> <!-- differentTestings.DDTdataProviderAnnotation -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
